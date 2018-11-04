@@ -1,0 +1,25 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<div class="container">
+  <div class="row">
+    <input
+      (keyup)="searchTerm$.next($event.target.value)" placeholder="Type to Search">
+  </div>
+  <div id="images" class="app-container">
+    <h3 *ngIf="images">
+      Flickr Feed
+    </h3>
+
+    <div class="col-sm-4 col-xs-6 col-md-3 col-lg-3"  *ngFor="let image of images">
+      <a class="thumbnail fancybox" rel="ligthbox" href="{{image.link}}">
+        <div class="img-fixed">
+          <img class="img-responsive" alt="" src="{{image.media.m}}" />
+        <div class="text-center">
+          <small class="text-muted">{{image.title}}</small>
+        </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
